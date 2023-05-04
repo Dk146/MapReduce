@@ -95,7 +95,6 @@ func (c *Coordinator) GetUnstartedReduceJob() (string, int) {
 	count := 0
 	for k, v := range c.ReduceJobs {
 		if v.status == Unstarted {
-			// fmt.Println("key", k, "   val", v.status)
 			v.status = Pending
 			v.startedTime = time.Now().Unix()
 			return v.filename, k
